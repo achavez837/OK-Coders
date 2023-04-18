@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(https://images.saatchiart.com/saatchi/919972/art/3945028/3014898-HSC00001-7.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main {
+    text-align: center;
+    background-color: rgba(100, 100, 100, 0.7);
+    height: 100vh;
+    padding-top: 10px;
+    margin: 40px;
+}
+
+#startingLine {
+    text-shadow: 2px 2px white;
+    font-size: 3rem;
+}
+
+#takeOneBtn {
+    padding: 20px;
+    font-size: 1.3rem;
+    border-radius: 30px;
+}
+
+#takeOneBtn:hover {
+    background-color: rgba(67, 77, 110, 0.842);
+    color: white;
+}
+
+#takeOneBtn:active {
+    background-color: rgba(0, 0, 0, 0.87);
+    color: white;
+    transition: 0.1s;
+}
+
+#newLine {
+    color: white;
+    text-shadow: 5px 2px 4px black;
+    font-size: 2rem;
+}
