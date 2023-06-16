@@ -1,0 +1,86 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    const rootElement = document.getElementById("root");
+    function useLocalStorageState(key, defaultValue = "") {
+      const [state, setState] = React.useState(
+        () => window.localStorage.getItem(key) || defaultValue // by turning the useState into a function, it will only run once, when the component is first rendered. essentially only when needed
+      ); // useState returns an array with two elements, the first is the current state, the second is a function to update the state
+      React.useEffect(() => {
+        window.localStorage.setItem(key, state);
+      }, [key, state]); // useEffect is a hook that allows you to perform side effects in function components. It runs after every render by default, but you can specify when it should run by passing in a second argument. In this case, it will only run when the name changes
+      return [state, setState];
+    }
+
+    function Greeting() {
+      const [name, setName] = useLocalStorageState("name"); // its important that use is in front of the hook name so that react knows its a custom hook
+
+      const handleChange = (event) => {
+        setName(event.target.value);
+      };
+      return (
+        <div>
+          <form>
+            <label htmlFor="name">Name: </label>
+            <input value={name} onChange={handleChange} id="name" />
+          </form>
+          {name ? <strong>Hello {name}</strong> : "Please type your name"}
+        </div>
+      );
+    }
+    ReactDOM.render(<Greeting />, rootElement);
+  </script>
+</body>
+
+<!-- // const element = (
+    //   <> {/* this is a fragment, it's a way to return multiple elements without a parent div. Fragments can be empty <></> or have children <><span>hello</span></> */}
+    //     <span>Hello</span> <span>World</span>
+    //   </>
+    // ); -->
+
+<!-- const Message = (props) => <div className="message">{props.children}</div>; // You can use functions as HTML tags in JSX just make sure its capitalized
+    const element = (
+      <div className="container">
+        <Message> Hello World </Message>
+        <Message> GoodBye World </Message>
+      </div>
+    ); -->
+<!-- const state = { eventCount: 0, username: " " };
+
+    function App() {
+      function handleClick() {
+        setState({ eventCount: state.eventCount + 1 });
+      }
+      function handleChange(event) {
+        console.log(event)
+        setState({ username: event.target.value });
+      }
+      return (
+        <div>
+          <p>There has been {state.eventCount} events</p>
+          <p>
+            <button onClick={handleClick}>Click Me</button>
+          </p>
+          <p>You typed: {state.username}</p>
+          <p>
+            <input
+              onChange={handleChange}
+            />
+          </p>
+        </div>
+      );
+    }
+
+    function setState(newState) {
+      Object.assign(state, newState);
+      renderApp();
+    }
+
+    function renderApp() {
+      ReactDOM.render(<App />, rootElement);
+    }
+
+    renderApp(); -->
