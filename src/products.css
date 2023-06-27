@@ -1,0 +1,69 @@
+.products {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.products img {
+    width: 400px;
+    margin: 50px;
+}
+
+.productBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.text {
+    width: 350px;
+    height: 250px;
+    padding: 20px;
+    margin: 50px;
+    background-color: rgba(255, 255, 255, 0.582);
+    font-size: 0.8rem;
+}
+
+.text h1 {
+    margin-top: 0px;
+}
+
+.greenText {
+    border: 1px solid green;
+}
+
+.greenText h1 {
+    color: rgb(2, 66, 2);
+}
+
+.greenText hr {
+    border: 1px solid rgb(2, 66, 2)
+}
+
+.orangeText {
+    border: 1px solid rgb(190, 125, 2);
+}
+
+.orangeText h1 {
+    color: rgb(128, 62, 0);
+}
+
+.orangeText hr {
+    border: 1px solid rgb(128, 62, 0)
+}
+
+.blueText {
+    border: 1px solid blue;
+}
+
+.blueText h1 {
+    color: rgb(2, 2, 66);
+}
+
+.blueText hr {
+    border: 1px solid rgb(2, 2, 66)
+}
